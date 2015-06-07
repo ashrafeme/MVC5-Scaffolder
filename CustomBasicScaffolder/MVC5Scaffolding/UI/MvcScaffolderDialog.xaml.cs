@@ -29,5 +29,7 @@ namespace Happy.Scaffolding.MVC.UI
 
             DataContext = viewModel;
         }
+
+       
     }
 }

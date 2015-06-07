@@ -454,39 +454,14 @@ namespace Happy.Scaffolding.MVC.Scaffolders
                     , skipIfExists: true);
             }
             
-            //var fieldTemplatesPath = "DynamicData\\FieldTemplates";
-
-            //// Add the folder
-            //AddFolder(project, fieldTemplatesPath);
-
-            //foreach (var fieldTemplate in fieldTemplates)
-            //{
-            //    var templatePath = Path.Combine(fieldTemplatesPath, fieldTemplate);
-            //    var outputPath = Path.Combine(fieldTemplatesPath, fieldTemplate);
-
-
-
-            //    AddFileFromTemplate(
-            //        project: project,
-            //        outputPath: outputPath,
-            //        templateName: templatePath,
-            //        templateParameters: new Dictionary<string, object>() 
-            //        {
-            //            {"DefaultNamespace", project.GetDefaultNamespace()},
-            //            {"GenericRepositoryNamespace", genericRepositoryNamespace}
-            //        },
-            //        skipIfExists: true);
-            //}
+            
         }
 
         #region function library
 
         public string GetJqueryVersion(Project project)
         {
-            //NuGetPackage p=new NuGetPackage("jquery",
-            //                                 "1.6.4",
-            //                                 new NuGetSourceRepository());
-            // context.Packages.Add(p);
+            
 
             for(int x=0; x<project.Properties.Count; x++)
             {
@@ -535,15 +510,7 @@ namespace Happy.Scaffolding.MVC.Scaffolders
         /// <returns></returns>
         private string GetViewsFolderPath(string selectionRelativePath)
         {
-            //string keyControllers = "Controllers";
-            //string keyViews = "Views";
-
-            //return (
-            //    (
-            //    controllerPath.IndexOf(keyControllers) >= 0)
-            //    ? controllerPath.Replace(keyControllers, keyViews)
-            //    : Path.Combine(controllerPath, keyViews)
-            //    );
+            
             return GetRelativeFolderPath(selectionRelativePath, "Views");
         }
         private string GetModelFolderPath(string selectionRelativePath)
@@ -574,244 +541,7 @@ namespace Happy.Scaffolding.MVC.Scaffolders
 
         #endregion
 
-        #region no used
-        //// A single generic repository is created no matter how many models are scaffolded 
-        //// with the Web Forms scaffolder. This generic repository is added to the Models folder. 
-        //private void EnsureGenericRepository(Project project, CodeType dbContext, string genericRepositoryNamespace)
-        //{
-        //    string dbContextNameSpace = dbContext.Namespace != null ? dbContext.Namespace.FullName : String.Empty;
-
-        //    // Add the folder
-        //    AddFolder(project, "Models");
-
-        //    AddFileFromTemplate(
-        //        project: project,
-        //        outputPath: "Models\\GenericRepository",
-        //        templateName: "Models\\GenericRepository",
-        //        templateParameters: new Dictionary<string, object>() 
-        //            {
-        //                {"Namespace", genericRepositoryNamespace},
-        //                {"DBContextType", dbContext.Name},
-        //                {"DBContextNamespace", dbContextNameSpace}
-        //            },
-        //        skipIfExists: true);
-        //}
-
-
-        //// A set of Dynamic Data field templates is created that support Bootstrap
-        //private void EnsureDynamicDataFieldTemplates(Project project, string genericRepositoryNamespace)
-        //{
-        //    var fieldTemplates = new[] { 
-        //        "Boolean", "Boolean.ascx.designer", "Boolean.ascx",
-        //        "Boolean_Edit", "Boolean_Edit.ascx.designer", "Boolean_Edit.ascx",
-        //        "Children", "Children.ascx.designer", "Children.ascx",
-        //        "Children_Insert", "Children_Insert.ascx.designer", "Children_Insert.ascx",
-        //        "DateTime", "DateTime.ascx.designer", "DateTime.ascx",
-        //        "DateTime_Edit", "DateTime_Edit.ascx.designer", "DateTime_Edit.ascx",
-        //        "Decimal_Edit", "Decimal_Edit.ascx.designer", "Decimal_Edit.ascx",
-        //        "EmailAddress", "EmailAddress.ascx.designer", "EmailAddress.ascx",
-        //        "Enumeration", "Enumeration.ascx.designer", "Enumeration.ascx",
-        //        "Enumeration_Edit", "Enumeration_Edit.ascx.designer", "Enumeration_Edit.ascx",
-        //        "ForeignKey", "ForeignKey.ascx.designer", "ForeignKey.ascx",
-        //        "ForeignKey_Edit", "ForeignKey_Edit.ascx.designer", "ForeignKey_Edit.ascx",
-        //        "Integer_Edit", "Integer_Edit.ascx.designer", "Integer_Edit.ascx",
-        //        "FieldLabel", "FieldLabel.ascx.designer", "FieldLabel.ascx",
-        //        "MultilineText_Edit", "MultilineText_Edit.ascx.designer", "MultilineText_Edit.ascx",
-        //        "Text", "Text.ascx.designer", "Text.ascx",
-        //        "Text_Edit", "Text_Edit.ascx.designer", "Text_Edit.ascx",
-        //        "Url", "Url.ascx.designer", "Url.ascx",
-        //        "Url_Edit", "Url_Edit.ascx.designer", "Url_Edit.ascx"
-        //    };
-        //    var fieldTemplatesPath = "DynamicData\\FieldTemplates";
-
-        //    // Add the folder
-        //    AddFolder(project, fieldTemplatesPath);
-
-        //    foreach (var fieldTemplate in fieldTemplates)
-        //    {
-        //        var templatePath = Path.Combine(fieldTemplatesPath, fieldTemplate);
-        //        var outputPath = Path.Combine(fieldTemplatesPath, fieldTemplate);
-
-
-
-        //        AddFileFromTemplate(
-        //            project: project,
-        //            outputPath: outputPath,
-        //            templateName: templatePath,
-        //            templateParameters: new Dictionary<string, object>() 
-        //            {
-        //                {"DefaultNamespace", project.GetDefaultNamespace()},
-        //                {"GenericRepositoryNamespace", genericRepositoryNamespace}
-        //            },
-        //            skipIfExists: true);
-        //    }
-        //}
-
-
-        //// Generates all of the Web Forms Pages (Default Insert, Edit, Delete), 
-        //private void AddWebFormsPages(
-        //    Project project,
-        //    string selectionRelativePath,
-        //    string genericRepositoryNamespace,
-        //    CodeType modelType,
-        //    ModelMetadata efMetadata,
-        //    bool useMasterPage,
-        //    string masterPage = null,
-        //    string desktopPlaceholderId = null,
-        //    bool overwriteViews = true
-        //)
-        //{
-
-        //    if (modelType == null)
-        //    {
-        //        throw new ArgumentNullException("modelType");
-        //    }
-
-        //    // Generate dictionary for related entities
-        //    var relatedModels = GetRelatedModelDictionary(efMetadata);
-
-
-        //    var webForms = new[] { "Default", "Insert", "Edit", "Delete" };
-
-        //    // Extract these from the selected master page : Tracked by 721707
-        //    var sectionNames = new[] { "HeadContent", "MainContent" };
-
-        //    // Add folder for views. This is necessary to display an error when the folder already exists but 
-        //    // the folder is excluded in Visual Studio: see https://github.com/Superexpert/WebFormsScaffolding/issues/18
-        //    string outputFolderPath = Path.Combine(selectionRelativePath, modelType.Name);
-        //    AddFolder(Context.ActiveProject, outputFolderPath);
-
-
-        //    // Now add each view
-        //    foreach (string webForm in webForms)
-        //    {
-        //        AddWebFormsViewTemplates(
-        //            outputFolderPath: outputFolderPath,
-        //            modelType: modelType,
-        //            efMetadata: efMetadata,
-        //            relatedModels: relatedModels,
-        //            genericRepositoryNamespace: genericRepositoryNamespace,
-        //            webFormsName: webForm,
-        //            useMasterPage: useMasterPage,
-        //            masterPage: masterPage,
-        //            sectionNames: sectionNames,
-        //            primarySectionName: desktopPlaceholderId,
-        //            overwrite: overwriteViews);
-        //    }
-        //}
-
-
-
-
-        //private void AddWebFormsViewTemplates(
-        //                        string outputFolderPath,
-        //                        CodeType modelType,
-        //                        ModelMetadata efMetadata,
-        //                        IDictionary<string, RelatedModelMetadata> relatedModels,
-        //                        string genericRepositoryNamespace,
-        //                        string webFormsName,
-        //                        bool useMasterPage,
-        //                        string masterPage = "",
-        //                        string[] sectionNames = null,
-        //                        string primarySectionName = "",
-        //                        bool overwrite = false
-        //)
-        //{
-        //    if (modelType == null)
-        //    {
-        //        throw new ArgumentNullException("modelType");
-        //    }
-        //    if (String.IsNullOrEmpty(webFormsName))
-        //    {
-        //        throw new ArgumentException(Resources.WebFormsViewScaffolder_EmptyActionName, "webFormsName");
-        //    }
-
-        //    PropertyMetadata primaryKey = efMetadata.PrimaryKeys.FirstOrDefault();
-        //    string pluralizedName = efMetadata.EntitySetName;
-
-        //    string modelNameSpace = modelType.Namespace != null ? modelType.Namespace.FullName : String.Empty;
-        //    string relativePath = outputFolderPath.Replace(@"\", @"/");
-
-        //    List<string> webFormsTemplates = new List<string>();
-        //    webFormsTemplates.AddRange(new string[] { webFormsName, webFormsName + ".aspx", webFormsName + ".aspx.designer" });
-
-        //    // Scaffold aspx page and code behind
-        //    foreach (string webForm in webFormsTemplates)
-        //    {
-        //        Project project = Context.ActiveProject;
-        //        var templatePath = Path.Combine("WebForms", webForm);
-        //        string outputPath = Path.Combine(outputFolderPath, webForm);
-
-        //        var defaultNamespace = GetDefaultNamespace() + "." + modelType.Name;
-        //        AddFileFromTemplate(project,
-        //            outputPath,
-        //            templateName: templatePath,
-        //            templateParameters: new Dictionary<string, object>() 
-        //            {
-        //                {"RelativePath", relativePath},
-        //                {"DefaultNamespace", defaultNamespace},
-        //                {"Namespace", modelNameSpace},
-        //                {"IsContentPage", useMasterPage},
-        //                {"MasterPageFile", masterPage},
-        //                {"SectionNames", sectionNames},
-        //                {"PrimarySectionName", primarySectionName},
-        //                {"PrimaryKeyMetadata", primaryKey},
-        //                {"PrimaryKeyName", primaryKey.PropertyName},
-        //                {"PrimaryKeyType", primaryKey.ShortTypeName},
-        //                {"ViewDataType", modelType},
-        //                {"ViewDataTypeName", modelType.Name},
-        //                {"GenericRepositoryNamespace", genericRepositoryNamespace},
-        //                {"PluralizedName", pluralizedName},
-        //                {"ModelMetadata", efMetadata},
-        //                {"RelatedModels", relatedModels}
-        //            },
-        //            skipIfExists: !overwrite);
-        //    }
-        //}
-
-
-
-        // We are just pulling in some dependent nuget packages
-        // to meet "Web Application Project" experience in this change.
-        // There are some open questions regarding the experience for
-        // webforms scaffolder in the case of an empty project.
-        // Those details need to be worked out and
-        // depending on that, we would modify the list of packages below
-        // or conditions which determine when they are installed etc.
-        //public override IEnumerable<NuGetPackage> Dependencies
-        //{
-        //    get
-        //    {
-        //        return GetService<IEntityFrameworkService>().Dependencies;
-        //    }
-        //}
-
-
-
-        // Create a dictionary that maps foreign keys to related models. We only care about associations
-        // with a single key (so we can display in a DropDownList)
-        //protected IDictionary<string, RelatedModelMetadata> GetRelatedModelDictionary(ModelMetadata efMetadata)
-        //{
-        //    var dict = new Dictionary<string, RelatedModelMetadata>();
-
-        //    foreach (var relatedEntity in efMetadata.RelatedEntities)
-        //    {
-        //        if (relatedEntity.ForeignKeyPropertyNames.Count() == 1)
-        //        {
-        //            dict[relatedEntity.ForeignKeyPropertyNames[0]] = relatedEntity;
-        //        }
-        //    }
-        //    return dict;
-        //}
-
-        //private void WriteLog(string message)
-        //{
-        //    System.IO.StreamWriter sw = new StreamWriter("R:\\LOG.Scaffold.txt", true);
-        //    sw.WriteLine(message);
-        //    sw.Close();
-        //}
-
-        #endregion
+        
 
     }
 }
